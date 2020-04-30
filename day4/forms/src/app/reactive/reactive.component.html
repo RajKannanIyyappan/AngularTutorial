@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+
+  <div formGroupName="login">
+    <label for="username">User Name</label>
+    <input type="text" id="username" formControlName="username">
+    <div *ngIf="form.get('login.username').invalid" class="error">Username is invalid</div>
+    <div *ngIf="form.get('login.username').pending" class="error">Checking username availability ...</div>
+
+    <label for="password">Password</label>
+    <input type="text" id="password" formControlName="password">
+
+  </div>
+  <label for="cars">Choose a car:</label>
+
+  <select id="cars" formControlName="cars">
+    <option *ngFor="let car of cars" value="{{car}}">{{car}}</option>
+
+  </select>
+  <br/>
+ <!-- <div *ngIf="form.get('cars').invalid" class="error">Cars selection is required</div>-->
+  <button [disabled]="form.invalid">submit</button>
+</form>

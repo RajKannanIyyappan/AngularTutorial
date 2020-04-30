@@ -1,0 +1,15 @@
+<form ngForm #form=ngForm>
+
+  <div >
+    <label for="username">User Name</label>
+    <input required minlength="3" type="text" id="username" name="username" ngModel #username=ngModel>
+    <div *ngIf="username.invalid && username.touched" class="error">Username is invalid</div>
+
+
+    <label for="password">Password</label>
+    <input type="text" id="password" >
+
+  </div>
+
+ <button [disabled]="form.invalid">submit</button>
+</form>
